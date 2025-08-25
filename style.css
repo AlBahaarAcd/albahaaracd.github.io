@@ -719,6 +719,67 @@ a {
   }
 }
 
+/* Extra-small mobile tweaks (Android small phones) */
+@media (max-width: 480px) {
+  /* Navbar: keep brand from pushing toggler, align toggler to right */
+  .site-navbar .navbar-brand {
+    font-size: 0.95rem;
+    max-width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .navbar .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .navbar-toggler {
+    margin-left: auto;
+    padding: 0.35rem 0.55rem;
+    line-height: 1;
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  /* Global spacing/typography tighten */
+  .wrapper { padding: 0 14px; }
+  .section { padding: 60px 16px; }
+  .section-header h2 { font-size: 1.4rem; }
+  .section-header p { font-size: 0.95rem; }
+  p, li { font-size: 0.95rem; }
+  .btn { padding: 0.8rem 1.4rem; font-size: 0.95rem; }
+
+  /* Hero */
+  .hero-text h1 { font-size: clamp(1.8rem, 6.5vw + 0.6rem, 2.4rem); }
+  .hero-description { font-size: 0.95rem; }
+
+  /* Cards */
+  .card, .course-card, .feature-card, .stat, .about-card, .stat-card {
+    padding: 16px;
+  }
+
+  /* About and approach */
+  .about-text p { font-size: 1rem; }
+  .approach-item, .value-card { padding: 1.2rem; }
+
+  /* Testimonials */
+  .testimonial-card, .user-testimonial-card { padding: 1.2rem; }
+  .testimonial-text, .user-testimonial-text { font-size: 0.95rem; }
+  .testimonial-author, .user-testimonial-name { font-size: 0.95rem; }
+}
+
+/* Ultra-small screens: further tighten */
+@media (max-width: 400px) {
+  .site-navbar .navbar-brand { font-size: 0.9rem; max-width: 60%; }
+  .section { padding: 50px 14px; }
+  .section-header h2 { font-size: 1.25rem; }
+  .btn { padding: 0.75rem 1.2rem; font-size: 0.9rem; }
+  .hero-text h1 { font-size: clamp(1.6rem, 7vw + 0.4rem, 2.1rem); }
+  .hero-subtitle { font-size: 1rem; }
+  .hero-description { font-size: 0.9rem; }
+  .stat-number { font-size: 2rem; }
+  .stat-label { font-size: 0.75rem; }
+}
+
 @media (max-width: 480px) {
   .hero-section {
     min-height: 80vh;
@@ -1376,7 +1437,7 @@ a {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .leaderboard-table {
@@ -1384,6 +1445,26 @@ a {
   border-collapse: collapse;
   color: #ffffff;
   font-size: 1.1rem;
+}
+
+/* Ensure table is scrollable on very narrow screens */
+.leaderboard-table { min-width: 520px; }
+
+@media (max-width: 768px) {
+  .leaderboard-table { font-size: 0.95rem; }
+  .leaderboard-table th, .leaderboard-table td { padding: 0.8rem 0.6rem; }
+}
+
+@media (max-width: 560px) {
+  .leaderboard-table-wrapper { padding: 1.25rem; }
+  .leaderboard-table { font-size: 0.9rem; }
+  .leaderboard-table th, .leaderboard-table td { padding: 0.7rem 0.5rem; }
+}
+
+@media (max-width: 400px) {
+  .leaderboard-table-wrapper { padding: 1rem; }
+  .leaderboard-table { font-size: 0.85rem; }
+  .leaderboard-table th, .leaderboard-table td { padding: 0.6rem 0.45rem; }
 }
 
 .leaderboard-table thead {
@@ -3533,6 +3614,40 @@ a {
   color: #10b981;
   font-weight: 600;
   font-size: 0.9rem;
+}
+
+/* Our Courses responsive fixes */
+@media (max-width: 900px) {
+  .courses-preview-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+  .course-preview-card { padding: 24px; }
+  .course-icon { font-size: 2.2rem; }
+
+  .courses-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .course-card { padding: 24px; }
+}
+
+@media (max-width: 680px) {
+  .courses-preview-grid { grid-template-columns: 1fr; gap: 18px; }
+  .course-preview-card h3 { font-size: 1.15rem; }
+  .course-preview-card p { font-size: 0.98rem; }
+  .course-icon { font-size: 2rem; }
+
+  .courses-grid { grid-template-columns: 1fr; gap: 18px; }
+  .course-card h3 { font-size: 1.2rem; }
+  .course-description { font-size: 0.98rem; }
+  .detail-item { font-size: 0.9rem; }
+}
+
+@media (max-width: 420px) {
+  .course-preview-card { padding: 16px; }
+  .course-icon { font-size: 1.8rem; }
+  .course-preview-card h3 { font-size: 1.05rem; }
+  .course-preview-card p { font-size: 0.95rem; }
+
+  .course-card { padding: 18px; }
+  .course-card h3 { font-size: 1.1rem; }
+  .course-description { font-size: 0.95rem; }
+  .courses-hero-text h1 { font-size: clamp(1.8rem, 5.5vw + 0.6rem, 2.2rem); }
 }
 
 /* Teaching Methodology */

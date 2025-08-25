@@ -19,7 +19,7 @@
   <!-- Header / Navigation (Bootstrap only) -->
    <header>
     <nav class="navbar navbar-expand-lg navbar-dark site-navbar home-navbar fixed-top">
-      <div class="container-fluid px-3">
+      <div class="container-fluid px-2
         <a class="navbar-brand fw-bold" href="index.html#home">AL Bahaar Islamic Academy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
           aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -469,6 +469,7 @@
     // Navbar background on scroll
     (function () {
       var nav = document.querySelector('.site-navbar');
+      var navbarCollapse = document.getElementById('mainNav');
       var setBg = function () {
         if (!nav) return;
         if (window.scrollY > 10) {
@@ -478,7 +479,14 @@
         }
       };
       setBg();
-      window.addEventListener('scroll', setBg);
+      window.addEventListener('scroll', function() {
+        setBg();
+        // Auto-close hamburger menu on scroll if open
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          var bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
+          bsCollapse.hide();
+        }
+      }, { passive: true });
     })();
 
     // Animated counters when visible
